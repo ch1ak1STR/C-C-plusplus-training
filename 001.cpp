@@ -12,18 +12,18 @@ void endPrint(const char* c) {
 }
 
 void showAddress() {
-    start_print(__func__);
+    startPrint(__func__);
     int     num = -10;
     char      a = 'a';
     int *intptr = &num;
     printf("printf(%%d\\n, num)         = %d\n",         num);
     // 型整合のため(void*)にキャスト
     printf("printf(%%p\\n, (void*)&num) = %p\n", (void*)&num);
-    end_print(__func__);
+    endPrint(__func__);
 }
 
 void jointReference() {
-    start_print(__func__);
+    startPrint(__func__);
     int x = 25; // int型の変数
     int *ptr;   // int型へのポインタ
     ptr = &x;   // ｘのアドレスをポインタに代入
@@ -38,7 +38,7 @@ void jointReference() {
     printf("printf(%%d\\n,      *ptr) = %d\n",      *ptr);
     printf("printf(%%p\\n, (void*)&x) = %p\n", (void*)&x);
     printf("printf(%%p\\n,       ptr) = %p\n",       ptr);
-    end_print(__func__);
+    endPrint(__func__);
 }
 
 void inputNum(int &num) {
@@ -48,25 +48,25 @@ void inputNum(int &num) {
 }
 
 void callByReference() {
-    start_print(__func__);
+    startPrint(__func__);
     int num;
-    in_num(num);
-    end_print(__func__);
+    inputNum(num);
+    endPrint(__func__);
 }
 
 void showSetValue(int *num) {
     printf("printf(%%p\\n, (void*)value) = %p\n", (void*)num);
-    *value = 10;
+    *num = 10;
 }
 
 void passingByReference() {
-    start_print(__func__);
+    startPrint(__func__);
     int num = 5;
     printf("printf(%%d\\n, num) = %d\n", num);
-    showValue(&num);
+    showSetValue(&num);
     printf("呼び出し先の関数でvalueを弄ったのが反映される (num : 5 -> 10)\n");
     printf("printf(%%d\\n, num) = %d\n", num);
-    end_print(__func__);
+    endPrint(__func__);
 }
 
 int main() {

@@ -28,10 +28,10 @@ void jointReference() {
     int *ptr;   // int型へのポインタ
     ptr = &x;   // ｘのアドレスをポインタに代入
 
-    printf("printf(%%d\\n, x)         = %d\n",         x);
-    printf("printf(%%d\\n, *ptr)      = %d\n",      *ptr);
+    printf("printf(%%d\\n,         x) = %d\n",         x);
+    printf("printf(%%d\\n,      *ptr) = %d\n",      *ptr);
     printf("printf(%%p\\n, (void*)&x) = %p\n", (void*)&x);
-    printf("printf(%%p\\n, ptr)       = %p\n",       ptr);
+    printf("printf(%%p\\n,       ptr) = %p\n",       ptr);
     *ptr = 100; // これは実際にxに100を割り当てる。(デリファレンス)
     printf("値を変更した結果\n");
     printf("printf(%%d\\n,         x) = %d\n",         x);
@@ -62,10 +62,10 @@ void showSetValue(int *num) {
 void passingByReference() {
     start_print(__func__);
     int num = 5;
-    printf("printf(%%d\\n, num)          = %d\n", num);
+    printf("printf(%%d\\n, num) = %d\n", num);
     showValue(&num);
     printf("呼び出し先の関数でvalueを弄ったのが反映される (num : 5 -> 10)\n");
-    printf("printf(%%d\\n, num)          = %d\n", num);
+    printf("printf(%%d\\n, num) = %d\n", num);
     end_print(__func__);
 }
 

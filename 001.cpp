@@ -3,15 +3,15 @@
 
 static const char* line = "------------------";
 
-void start_print(const char* c) {
+void startPrint(const char* c) {
     printf("%s %s start %s\n", line, c, line);
 }
 
-void end_print(const char* c) {
+void endPrint(const char* c) {
     printf("%s %s end   %s\n", line, c, line);
 }
 
-void address() {
+void showAddress() {
     start_print(__func__);
     int     num = -10;
     char      a = 'a';
@@ -22,7 +22,7 @@ void address() {
     end_print(__func__);
 }
 
-void joint_reference() {
+void jointReference() {
     start_print(__func__);
     int x = 25; // int型の変数
     int *ptr;   // int型へのポインタ
@@ -41,25 +41,25 @@ void joint_reference() {
     end_print(__func__);
 }
 
-void in_num(int &num){
+void inputNum(int &num) {
   std::cout << "好きな数字を入力 : ";
   std::cin  >> num;
   std::cout << "入力した数字 = " << num << std::endl;
 }
 
-void call_by_reference() {
+void callByReference() {
     start_print(__func__);
     int num;
     in_num(num);
     end_print(__func__);
 }
 
-void showValue(int *value) {
-    printf("printf(%%p\\n, (void*)value) = %p\n", (void*)value);
+void showSetValue(int *num) {
+    printf("printf(%%p\\n, (void*)value) = %p\n", (void*)num);
     *value = 10;
 }
 
-void passing_by_reference() {
+void passingByReference() {
     start_print(__func__);
     int num = 5;
     printf("printf(%%d\\n, num)          = %d\n", num);
@@ -70,9 +70,9 @@ void passing_by_reference() {
 }
 
 int main() {
-    address();
-    joint_reference();
-    call_by_reference();
-    passing_by_reference();
+    showAddress();
+    jointReference();
+    callByReference();
+    passingByReference();
     return 0;
 }

@@ -24,7 +24,7 @@ void showAddress() {
 
 void jointReference() {
     startPrint(__func__);
-    int x = 25; // int型の変数
+    int x = 25; 
     int *ptr;   // int型へのポインタ
     ptr = &x;   // ｘのアドレスをポインタに代入
 
@@ -69,10 +69,29 @@ void passingByReference() {
     endPrint(__func__);
 }
 
+void pointerArithmetic() {
+    startPrint(__func__);
+    int vals[] = { 1, 2, 3 };
+    int *valptr;
+    valptr = vals;  
+    // vals[i] は *(valptr + i) と同じ
+    printf("printf(%%d\\n, vals[1])     = %d\n",           vals[1]);
+    printf("printf(%%d\\n, *(valptr+1)) = %d\n",       *(valptr+1));
+    printf("printf(%%d\\n, vals[2])     = %d\n",           vals[2]);
+    printf("printf(%%d\\n, *(valptr+2)) = %d\n",       *(valptr+2));
+
+    printf("printf(%%p\\n, vals[1])     = %p\n",   (void*)&vals[1]);
+    printf("printf(%%p\\n, *(valptr+1)) = %p\n", (void*)(valptr+1));
+    printf("printf(%%p\\n, vals[2])     = %p\n",   (void*)&vals[2]);
+    printf("printf(%%p\\n, *(valptr+2)) = %p\n", (void*)(valptr+2));
+    endPrint(__func__);
+}
+
 int main() {
     showAddress();
     jointReference();
     callByReference();
     passingByReference();
+    pointerArithmetic();
     return 0;
 }

@@ -1,15 +1,6 @@
 #include <stdio.h>
 #include <iostream>
-
-static const char* line = "------------------";
-
-void startPrint(const char* c) {
-    printf("%s %s start %s\n", line, c, line);
-}
-
-void endPrint(const char* c) {
-    printf("%s %s end   %s\n", line, c, line);
-}
+#include "trainingLib.h"
 
 void showAddress() {
     startPrint(__func__);
@@ -42,9 +33,9 @@ void jointReference() {
 }
 
 void inputNum(int &num) {
-  std::cout << "好きな数字を入力 : ";
-  std::cin  >> num;
-  std::cout << "入力した数字 = " << num << std::endl;
+    std::cout << "好きな数字を入力 : ";
+    std::cin  >> num;
+    std::cout << "入力した数字 = " << num << std::endl;
 }
 
 void callByReference() {
